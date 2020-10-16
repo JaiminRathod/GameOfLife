@@ -47,4 +47,8 @@ public class Game {
 
         return nextPossibleLivePoints;
     }
+
+    Set<Point> findNextLivePoints() {
+        return livePoints;
+    }
 }
