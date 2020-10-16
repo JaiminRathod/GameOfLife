@@ -23,6 +23,7 @@ public class Game {
         neighbours.add(new Point(point.x + 1, point.y));
         neighbours.add(new Point(point.x + 1, point.y - 1));
         neighbours.add(new Point(point.x, point.y - 1));
+
         return neighbours;
     }
 
@@ -33,6 +34,7 @@ public class Game {
     int countSurroundingLivePoints(Point point) {
         Set<Point> neighbours = findNeighbours(point);
         neighbours.retainAll(livePoints);
+
         return neighbours.size();
     }
 
