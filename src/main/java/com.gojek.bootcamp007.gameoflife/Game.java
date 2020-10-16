@@ -104,7 +104,18 @@ public class Game {
         return new Point(maxX, maxY);
     }
 
+    public void clearScreen() {
+        try {
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     void printGrid() {
+        clearScreen();
+
         int gridBottomRightPointX = ((findBottomRightPoint().x + 99) / 100) * 100;
         int gridBottomRightPointY = ((findBottomRightPoint().y + 99) / 100) * 100;
 
