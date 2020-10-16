@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+    id 'org.barfuin.gradle.jacocolog' version '1.2.3'
+    id "com.diffplug.spotless" version "5.6.1"
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+}
+
+test {
+    finalizedBy jacocoTestCoverageVerification, spotlessCheck, jacocoTestReport
+    useJUnitPlatform()
+    dependsOn 'cleanTest'
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 1.0
+            }
+        }
+        rule {
+            limit {
+                counter = 'BRANCH'
+                value = 'COVEREDRATIO'
+                minimum = 1.0
+            }
+        }
+    }
+}
+
+jacocoLogTestCoverage {
+    counters {
+        showComplexityCoverage = false
+        showInstructionCoverage = false
+    }
+}
+
+spotless {
+    java {
+        target 'src/*/java/**/*.java'
+        eclipse()
+        trimTrailingWhitespace()
+        indentWithSpaces(4)
+        endWithNewline()
+    }
+    format 'misc', {
+        target '*.gradle', '*.md', '.gitignore', '*.java'
+
+        trimTrailingWhitespace()
+        indentWithSpaces(4)
+        endWithNewline()
+    }
+}
