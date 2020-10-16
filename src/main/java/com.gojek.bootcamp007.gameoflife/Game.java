@@ -71,4 +71,19 @@ public class Game {
             livePoints = findNextLivePoints();
         }
     }
+
+    Point findTopLeftPoint() {
+        int minX = Integer.MAX_VALUE;
+        int minY = Integer.MAX_VALUE;
+        for (Point livePoint : livePoints) {
+            if (livePoint.x < minX) {
+                minX = livePoint.x;
+            }
+            if (livePoint.y < minY) {
+                minY = livePoint.y;
+            }
+        }
+
+        return new Point(minX, minY);
+    }
 }
