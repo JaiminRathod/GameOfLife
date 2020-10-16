@@ -66,9 +66,11 @@ public class Game {
     }
 
     void play() throws InterruptedException {
+        printGrid();
         while (true) {
             Thread.sleep(100);
             livePoints = findNextLivePoints();
+            printGrid();
         }
     }
 
@@ -100,5 +102,48 @@ public class Game {
         }
 
         return new Point(maxX, maxY);
+    }
+
+    void printGrid() {
+        int gridBottomRightPointX = ((findBottomRightPoint().x + 99) / 100) * 100;
+        int gridBottomRightPointY = ((findBottomRightPoint().y + 99) / 100) * 100;
+
+        int gridTopLeftPointX = ((findTopLeftPoint().x - 99) / 100) * 100;
+        int gridTopLeftPointY = ((findTopLeftPoint().y - 99) / 100) * 100;
+
+        int xShift = gridTopLeftPointX * -1;
+        int yShift = gridTopLeftPointY * -1;
+
+        gridBottomRightPointX = gridBottomRightPointX + xShift;
+        gridBottomRightPointY = gridBottomRightPointY + yShift;
+
+        Set<Point> temp = new HashSet<>();
+
+        for (Point livePoint : livePoints) {
+            temp.add(new Point(livePoint.x + xShift, livePoint.y + yShift));
+        }
+
+        boolean[][] grid = new boolean[gridBottomRightPointX][gridBottomRightPointY];
+        for (int i = 0; i < gridBottomRightPointX; i++) {
+            for (int j = 0; j < gridBottomRightPointY; j++) {
+                grid[i][j] = false;
+            }
+        }
+        for (Point Point : temp) {
+            grid[Point.x][Point.y] = true;
+        }
+
+        System.out.println("Board");
+
+        for (int i = 0; i < gridBottomRightPointX; i++) {
+            for (int j = 0; j < gridBottomRightPointY; j++) {
+                if (!grid[i][j]) {
+                    System.out.print("_");
+                } else {
+                    System.out.print("#");
+                }
+            }
+            System.out.println();
+        }
     }
 }
