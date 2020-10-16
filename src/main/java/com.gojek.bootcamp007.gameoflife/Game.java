@@ -26,6 +26,10 @@ public class Game {
         return neighbours;
     }
 
+    boolean isLive(Point point) {
+        return true;
+    }
+
     Set<Point> findNextPossibleLivePoints() {
         Set<Point> nextPossibleLivePoints = new HashSet<>();
 

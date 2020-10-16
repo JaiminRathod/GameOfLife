@@ -53,4 +53,15 @@ class GameTest {
 
         assertEquals(expectedNextPossibleLivePoints, actualNextPossibleLivePoints);
     }
+
+    @Test
+    void testIsLiveForLivePoint() {
+        Point[] initialLivePoints = new Point[2];
+        initialLivePoints[0] = new Point(1, 2);
+        initialLivePoints[1] = new Point(2, 1);
+
+        Game game = new Game(initialLivePoints);
+        boolean isLive = game.isLive(new Point(1, 2));
+        assertTrue(isLive);
+    }
 }
