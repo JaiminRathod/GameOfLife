@@ -29,4 +29,6 @@ Java 8
 ```
 
 ### Usage
-TBD
+```
+./gradlew run
+```

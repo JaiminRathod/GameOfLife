@@ -3,6 +3,7 @@ plugins {
     id 'jacoco'
     id 'org.barfuin.gradle.jacocolog' version '1.2.3'
     id "com.diffplug.spotless" version "5.6.1"
+    id 'application'
 }
 
 repositories {
@@ -44,4 +45,10 @@ spotless {
         indentWithSpaces(4)
         endWithNewline()
     }
+}
+
+mainClassName = 'com.gojek.bootcamp007.gameoflife.Main'
+
+run {
+    standardInput = System.in
 }
