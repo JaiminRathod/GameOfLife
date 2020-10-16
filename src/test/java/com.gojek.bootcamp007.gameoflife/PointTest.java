@@ -32,4 +32,11 @@ class PointTest {
         Point point2 = null;
         assertNotEquals(point1, point2);
     }
+
+    @Test
+    void testEqualsForPointComparedWithNonPoint() {
+        Point point1 = new Point(1, 2);
+        String point2 = "Java";
+        assertNotEquals(point1, point2);
+    }
 }
