@@ -32,3 +32,7 @@ Java 8
 ```
 ./gradlew run
 ```
+
+#### Input
+Provide input file path as input
+> Output window will dynamic and will adjusted according to current pattern position

@@ -116,17 +116,17 @@ public class Game {
     void printGrid() {
         clearScreen();
 
-        int gridBottomRightPointX = ((findBottomRightPoint().x + 99) / 100) * 100;
-        int gridBottomRightPointY = ((findBottomRightPoint().y + 99) / 100) * 100;
+        int gridBottomRightPointX = ((findBottomRightPoint().x + 29) / 30) * 30;
+        int gridBottomRightPointY = ((findBottomRightPoint().y + 29) / 30) * 30;
 
-        int gridTopLeftPointX = ((findTopLeftPoint().x - 99) / 100) * 100;
-        int gridTopLeftPointY = ((findTopLeftPoint().y - 99) / 100) * 100;
+        int gridTopLeftPointX = ((findTopLeftPoint().x - 29) / 30) * 30;
+        int gridTopLeftPointY = ((findTopLeftPoint().y - 29) / 30) * 30;
 
         int xShift = gridTopLeftPointX * -1;
         int yShift = gridTopLeftPointY * -1;
 
-        gridBottomRightPointX = gridBottomRightPointX + xShift;
-        gridBottomRightPointY = gridBottomRightPointY + yShift;
+        gridBottomRightPointX = gridBottomRightPointX + xShift + 1;
+        gridBottomRightPointY = gridBottomRightPointY + yShift + 1;
 
         Set<Point> temp = new HashSet<>();
 
@@ -149,7 +149,7 @@ public class Game {
         for (int i = 0; i < gridBottomRightPointX; i++) {
             for (int j = 0; j < gridBottomRightPointY; j++) {
                 if (!grid[i][j]) {
-                    System.out.print("_");
+                    System.out.print(" ");
                 } else {
                     System.out.print("#");
                 }
