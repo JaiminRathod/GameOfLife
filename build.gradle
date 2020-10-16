@@ -14,30 +14,11 @@ dependencies {
 }
 
 test {
-    finalizedBy jacocoTestCoverageVerification, spotlessCheck, jacocoTestReport
+    finalizedBy spotlessCheck, jacocoTestReport
     useJUnitPlatform()
     dependsOn 'cleanTest'
     testLogging {
         events 'passed', 'skipped', 'failed'
-    }
-}
-
-jacocoTestCoverageVerification {
-    violationRules {
-        rule {
-            limit {
-                counter = 'LINE'
-                value = 'COVEREDRATIO'
-                minimum = 1.0
-            }
-        }
-        rule {
-            limit {
-                counter = 'BRANCH'
-                value = 'COVEREDRATIO'
-                minimum = 1.0
-            }
-        }
     }
 }
 
