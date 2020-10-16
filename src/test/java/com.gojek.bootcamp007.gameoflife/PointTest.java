@@ -25,4 +25,11 @@ class PointTest {
         Point point2 = new Point(1, 3);
         assertNotEquals(point1, point2);
     }
+
+    @Test
+    void testEqualsForPointComparedWithNull() {
+        Point point1 = new Point(1, 2);
+        Point point2 = null;
+        assertNotEquals(point1, point2);
+    }
 }

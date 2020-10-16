@@ -9,6 +9,8 @@ public class Point {
 
     @Override
     public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
         Point other = (Point) obj;
         return x == other.x && y == other.y;
     }
