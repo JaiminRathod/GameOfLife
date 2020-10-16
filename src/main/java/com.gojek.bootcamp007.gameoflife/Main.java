@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter input file path");
         final String inputFilePath = sc.nextLine();
@@ -36,5 +36,8 @@ public class Main {
             livePoints[counter] = livePoint;
             counter++;
         }
+
+        Game game = new Game(livePoints);
+        game.play();
     }
 }

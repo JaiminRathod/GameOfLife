@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Game {
 
-    private final Set<Point> livePoints = new HashSet<>();
+    private Set<Point> livePoints = new HashSet<>();
 
     public Game(Point[] liveCells) {
         if (liveCells != null)
@@ -63,5 +63,12 @@ public class Game {
         }
 
         return nextLivePoints;
+    }
+
+    void play() throws InterruptedException {
+        while (true) {
+            Thread.sleep(100);
+            livePoints = findNextLivePoints();
+        }
     }
 }

@@ -130,8 +130,8 @@ class GameTest {
         initialLivePoints[3] = new Point(2, 0);
         initialLivePoints[4] = new Point(2, 1);
         initialLivePoints[5] = new Point(2, 2);
-
         Game game = new Game(initialLivePoints);
+
         Set<Point> actualNextLivePoints = game.findNextLivePoints();
         Set<Point> expectedNextLivePoints = new HashSet<>();
         expectedNextLivePoints.add(new Point(1, 0));
