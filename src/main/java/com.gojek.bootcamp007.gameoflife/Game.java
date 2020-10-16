@@ -31,7 +31,9 @@ public class Game {
     }
 
     int countSurroundingLivePoints(Point point) {
-        return 0;
+        Set<Point> neighbours = findNeighbours(point);
+        neighbours.retainAll(livePoints);
+        return neighbours.size();
     }
 
     Set<Point> findNextPossibleLivePoints() {

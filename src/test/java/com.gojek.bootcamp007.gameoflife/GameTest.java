@@ -84,4 +84,18 @@ class GameTest {
         int actualSurroundingLivePoints = game.countSurroundingLivePoints(new Point(1, 2));
         assertEquals(0, actualSurroundingLivePoints);
     }
+
+    @Test
+    void testCountSurroundingLivePointsForNonEmptyLivePoints() {
+        Point[] initialLivePoints = new Point[4];
+        initialLivePoints[0] = new Point(0, 0);
+        initialLivePoints[1] = new Point(0, 1);
+        initialLivePoints[2] = new Point(2, 0);
+        initialLivePoints[3] = new Point(3, 3);
+
+        Game game = new Game(initialLivePoints);
+
+        int actualSurroundingLivePoints = game.countSurroundingLivePoints(new Point(1, 1));
+        assertEquals(3, actualSurroundingLivePoints);
+    }
 }
