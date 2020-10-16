@@ -49,6 +49,17 @@ public class Game {
     }
 
     Set<Point> findNextLivePoints() {
-        return livePoints;
+        Set<Point> nextLivePoints = new HashSet<>();
+        Set<Point> nextPossibleLivePoints = findNextPossibleLivePoints();
+
+        for (Point point : nextPossibleLivePoints) {
+            if (isLive(point) && (countSurroundingLivePoints(point) == 2 || countSurroundingLivePoints(point) == 3))
+                nextLivePoints.add(point);
+
+            if (!isLive(point) && countSurroundingLivePoints(point) == 3)
+                nextLivePoints.add(point);
+        }
+
+        return nextLivePoints;
     }
 }
