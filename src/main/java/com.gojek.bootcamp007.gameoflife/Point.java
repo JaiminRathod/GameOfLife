@@ -1,5 +1,7 @@
 package com.gojek.bootcamp007.gameoflife;
 
+import java.util.Objects;
+
 public class Point {
     public final int x, y;
     public Point(int x, int y) {
@@ -13,5 +15,10 @@ public class Point {
             return false;
         Point other = (Point) obj;
         return x == other.x && y == other.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }

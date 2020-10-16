@@ -39,4 +39,11 @@ class PointTest {
         String point2 = "Java";
         assertNotEquals(point1, point2);
     }
+
+    @Test
+    void testHashcodeForPointsWithSameEndPoints() {
+        Point point1 = new Point(1, 2);
+        Point point2 = new Point(1, 2);
+        assertEquals(point1.hashCode(), point2.hashCode());
+    }
 }
