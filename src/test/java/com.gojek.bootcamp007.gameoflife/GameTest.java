@@ -64,4 +64,15 @@ class GameTest {
         boolean isLive = game.isLive(new Point(1, 2));
         assertTrue(isLive);
     }
+
+    @Test
+    void testIsLiveForNonLivePoint() {
+        Point[] initialLivePoints = new Point[2];
+        initialLivePoints[0] = new Point(1, 2);
+        initialLivePoints[1] = new Point(2, 1);
+
+        Game game = new Game(initialLivePoints);
+        boolean isLive = game.isLive(new Point(3, 4));
+        assertFalse(isLive);
+    }
 }

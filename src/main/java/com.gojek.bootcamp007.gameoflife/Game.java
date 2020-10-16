@@ -27,7 +27,7 @@ public class Game {
     }
 
     boolean isLive(Point point) {
-        return true;
+        return livePoints.contains(point);
     }
 
     Set<Point> findNextPossibleLivePoints() {
