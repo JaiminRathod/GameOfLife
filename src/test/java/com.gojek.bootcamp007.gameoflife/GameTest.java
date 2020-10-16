@@ -25,4 +25,32 @@ class GameTest {
         expectedNeighbours.add(new Point(3, 2));
         assertEquals(expectedNeighbours, actualNeighbours);
     }
+
+    @Test
+    void testFindNextPossibleLivePoints() {
+        Point[] initialLivePoints = new Point[2];
+        initialLivePoints[0] = new Point(1, 2);
+        initialLivePoints[1] = new Point(2, 1);
+
+        Game game = new Game(initialLivePoints);
+        Set<Point> actualNextPossibleLivePoints = game.findNextPossibleLivePoints();
+        Set<Point> expectedNextPossibleLivePoints = new HashSet<>();
+
+        expectedNextPossibleLivePoints.add(new Point(0, 1));
+        expectedNextPossibleLivePoints.add(new Point(0, 2));
+        expectedNextPossibleLivePoints.add(new Point(0, 3));
+        expectedNextPossibleLivePoints.add(new Point(1, 0));
+        expectedNextPossibleLivePoints.add(new Point(1, 1));
+        expectedNextPossibleLivePoints.add(new Point(1, 2));
+        expectedNextPossibleLivePoints.add(new Point(1, 3));
+        expectedNextPossibleLivePoints.add(new Point(2, 0));
+        expectedNextPossibleLivePoints.add(new Point(2, 1));
+        expectedNextPossibleLivePoints.add(new Point(2, 2));
+        expectedNextPossibleLivePoints.add(new Point(2, 3));
+        expectedNextPossibleLivePoints.add(new Point(3, 0));
+        expectedNextPossibleLivePoints.add(new Point(3, 1));
+        expectedNextPossibleLivePoints.add(new Point(3, 2));
+
+        assertEquals(expectedNextPossibleLivePoints, actualNextPossibleLivePoints);
+    }
 }

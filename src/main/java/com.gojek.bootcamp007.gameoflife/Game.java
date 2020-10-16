@@ -1,10 +1,16 @@
 package com.gojek.bootcamp007.gameoflife;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Game {
+
+    private final Set<Point> livePoints = new HashSet<>();
+
     public Game(Point[] liveCells) {
+        if (liveCells != null)
+            this.livePoints.addAll(Arrays.asList(liveCells));
     }
 
     Set<Point> findNeighbours(Point point) {
@@ -18,5 +24,17 @@ public class Game {
         neighbours.add(new Point(point.x + 1, point.y - 1));
         neighbours.add(new Point(point.x, point.y - 1));
         return neighbours;
+    }
+
+    Set<Point> findNextPossibleLivePoints() {
+        Set<Point> nextPossibleLivePoints = new HashSet<>();
+
+        for (Point livePoint : livePoints) {
+            nextPossibleLivePoints.add(livePoint);
+            Set<Point> neighbours = findNeighbours(livePoint);
+            nextPossibleLivePoints.addAll(neighbours);
+        }
+
+        return nextPossibleLivePoints;
     }
 }
