@@ -86,4 +86,19 @@ public class Game {
 
         return new Point(minX, minY);
     }
+
+    Point findBottomRightPoint() {
+        int maxX = Integer.MIN_VALUE;
+        int maxY = Integer.MIN_VALUE;
+        for (Point livePoint : livePoints) {
+            if (livePoint.x > maxX) {
+                maxX = livePoint.x;
+            }
+            if (livePoint.y > maxY) {
+                maxY = livePoint.y;
+            }
+        }
+
+        return new Point(maxX, maxY);
+    }
 }

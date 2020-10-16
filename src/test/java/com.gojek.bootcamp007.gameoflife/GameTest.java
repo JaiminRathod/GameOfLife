@@ -155,4 +155,16 @@ class GameTest {
 
         assertEquals(new Point(1, 1), actualTopLeftPoint);
     }
+
+    @Test
+    void testFindBottomRightPointOfCurrentPattern() {
+        Point[] initialLivePoints = new Point[2];
+        initialLivePoints[0] = new Point(2, 1);
+        initialLivePoints[1] = new Point(1, 2);
+        Game game = new Game(initialLivePoints);
+
+        Point actualTopLeftPoint = game.findBottomRightPoint();
+
+        assertEquals(new Point(2, 2), actualTopLeftPoint);
+    }
 }
