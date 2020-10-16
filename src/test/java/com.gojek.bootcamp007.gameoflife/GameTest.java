@@ -75,4 +75,13 @@ class GameTest {
         boolean isLive = game.isLive(new Point(3, 4));
         assertFalse(isLive);
     }
+
+    @Test
+    void testCountSurroundingLivePointsForEmptyLivePoints() {
+        Point[] points = null;
+        Game game = new Game(points);
+
+        int actualSurroundingLivePoints = game.countSurroundingLivePoints(new Point(1, 2));
+        assertEquals(0, actualSurroundingLivePoints);
+    }
 }

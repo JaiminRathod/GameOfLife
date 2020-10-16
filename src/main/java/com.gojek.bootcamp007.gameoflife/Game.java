@@ -30,6 +30,10 @@ public class Game {
         return livePoints.contains(point);
     }
 
+    int countSurroundingLivePoints(Point point) {
+        return 0;
+    }
+
     Set<Point> findNextPossibleLivePoints() {
         Set<Point> nextPossibleLivePoints = new HashSet<>();
 
