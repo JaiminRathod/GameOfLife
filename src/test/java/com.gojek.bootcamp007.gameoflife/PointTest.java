@@ -11,4 +11,11 @@ class PointTest {
         Point point2 = new Point(1, 2);
         assertEquals(point1, point2);
     }
+
+    @Test
+    void testEqualsForPointsWithDifferentX() {
+        Point point1 = new Point(1, 2);
+        Point point2 = new Point(3, 2);
+        assertNotEquals(point1, point2);
+    }
 }
